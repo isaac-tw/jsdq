@@ -24,5 +24,9 @@
   "bugs": {
     "url": "https://github.com/isaac-tw/jsdq/issues"
   },
-  "homepage": "https://github.com/isaac-tw/jsdq#readme"
+  "homepage": "https://github.com/isaac-tw/jsdq#readme",
+  "dependencies": {
+    "chalk-animation": "^1.6.0",
+    "inquirer": "^8.2.6"
+  }
 }
