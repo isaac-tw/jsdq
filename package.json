@@ -27,6 +27,10 @@
   "homepage": "https://github.com/isaac-tw/jsdq#readme",
   "dependencies": {
     "chalk-animation": "^1.6.0",
-    "inquirer": "^8.2.6"
+    "cli-highlight": "^2.1.11",
+    "figlet": "^1.7.0",
+    "gradient-string": "^2.0.2",
+    "inquirer": "^8.2.6",
+    "nanospinner": "^1.1.0"
   }
 }
