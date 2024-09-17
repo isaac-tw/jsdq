@@ -1,0 +1,27 @@
+{
+  "name": "jsdq",
+  "version": "0.0.1",
+  "description": "Your daily dose of JavaScript brains",
+  "main": "cli.js",
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isaac-tw/jsdq.git"
+  },
+  "keywords": [
+    "cli",
+    "command-line",
+    "javascript-question"
+  ],
+  "author": "Isaac Huang <isaac.huang.tw@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/isaac-tw/jsdq/issues"
+  },
+  "homepage": "https://github.com/isaac-tw/jsdq#readme"
+}
