@@ -1,6 +1,6 @@
 {
   "name": "jsdq",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Your daily dose of JavaScript brains",
   "bin": "./src/cli.js",
   "main": "cli.js",
