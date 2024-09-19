@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const { createSpinner } = require('nanospinner');
 const { highlight } = require('cli-highlight');
+const chalk = require('chalk');
 const chalkAnimation = require('chalk-animation');
 const inquirer = require('inquirer');
 
@@ -17,14 +18,15 @@ async function displayIntro() {
 }
 
 async function processAnswer(isCorrect, correctAnswer) {
+    const formattedAnswer = chalk.green.bold(`"${correctAnswer}"`);
     const spinner = createSpinner('Processing answer...').start();
     await sleep(800);
 
+    const answerMsg = `The answer is ${formattedAnswer}.`;
     if (isCorrect) {
-        spinner.success({ text: `Correct! The answer is '${correctAnswer}'. Well done!` });
+        spinner.success({ text: `Correct! ${answerMsg} Well done!` });
     } else {
-        spinner.error({ text: `Incorrect. The correct answer is '${correctAnswer}'. Game Over.` });
-        process.exit(1);
+        spinner.error({ text: `Incorrect. ${answerMsg} Nice try, keep it up!.` });
     }
 }
 
@@ -46,8 +48,9 @@ async function displayQuestion({ prompt, codeSnippet, options, answer }) {
     });
 
     const isCorrect = selectedAnswer[0] === answer;
-    const correctChoice = options[optionLabels.indexOf(answer)];
+    const correctChoice = choices[optionLabels.indexOf(answer)];
 
+    console.log()
     await processAnswer(isCorrect, correctChoice);
 }
 
