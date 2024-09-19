@@ -29,21 +29,24 @@ async function processAnswer(isCorrect, correctAnswer) {
 }
 
 async function displayQuestion({ prompt, codeSnippet, options, answer }) {
+    const optionLabels = ['A', 'B', 'C', 'D'];
+
     let message = `${prompt}\n`;
     if (codeSnippet) {
         message += `\n${highlight(codeSnippet)}\n\n`;
     }
 
+    const choices = options.map((option, index) => `${optionLabels[index]}: ${option}`);
+
     const { selectedAnswer } = await inquirer.prompt({
         name: 'selectedAnswer',
         type: 'list',
         message,
-        choices: options,
+        choices,
     });
 
-    const correctChoiceIndex = ['A', 'B', 'C', 'D'].indexOf(answer);
-    const correctChoice = options[correctChoiceIndex];
-    const isCorrect = selectedAnswer === correctChoice;
+    const isCorrect = selectedAnswer[0] === answer;
+    const correctChoice = options[optionLabels.indexOf(answer)];
 
     await processAnswer(isCorrect, correctChoice);
 }
