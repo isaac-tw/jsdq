@@ -35,6 +35,34 @@ function getDailyShuffledNumber(questionNums) {
     return numbers[dayOfCycle];
 }
 
+function parseCodeAndText(inputText) {
+    // Use regex to split the string into parts
+    const fragments = inputText.split(/(```[\s\S]*?```)/);
+
+    // Initialize result array
+    const parsedContent = [];
+
+    // Process each part
+    fragments.forEach(part => {
+        if (part.startsWith('```')) {
+            // Extract code block content, removing the markdown delimiters
+            const code = part.replace(/^```[\s\S]*?\n/, '').replace(/\n```$/, '');
+            parsedContent.push({
+                content: `\n${code}\n`,
+                type: 'codeBlock',
+            });
+        } else if (part.trim().length > 0) {
+            parsedContent.push({
+                content: part,
+                type: 'string',
+            });
+        }
+    });
+
+    return parsedContent;
+}
+
 module.exports = {
     getDailyShuffledNumber,
+    parseCodeAndText,
 };

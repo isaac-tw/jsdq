@@ -5,7 +5,7 @@ const chalk = require('chalk');
 const chalkAnimation = require('chalk-animation');
 const inquirer = require('inquirer');
 
-const { getDailyShuffledNumber } = require('./utils/utils');
+const { getDailyShuffledNumber, parseCodeAndText } = require('./utils/utils');
 const questions = require('./assets/javascript-questions.json');
 
 const sleep = (ms = 1000) => new Promise(resolve => setTimeout(resolve, ms));
@@ -20,7 +20,12 @@ async function displayIntro() {
 async function displayExplanation({ answer, explanation }) {
     console.log();
     console.log(chalk.white.bold(`Answer: ${answer}`));
-    console.log(explanation);
+
+    const formattedExplanation = parseCodeAndText(explanation)
+        .map(({ type, content }) => type === 'codeBlock' ? highlight(content) : content)
+        .join('');
+
+    console.log(formattedExplanation);
 }
 
 async function processAnswer(isCorrect, correctAnswer) {
