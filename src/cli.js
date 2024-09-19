@@ -17,6 +17,12 @@ async function displayIntro() {
     animatedTitle.stop();
 }
 
+async function displayExplanation({ answer, explanation }) {
+    console.log();
+    console.log(chalk.white.bold(`Answer: ${answer}`));
+    console.log(explanation);
+}
+
 async function processAnswer(isCorrect, correctAnswer) {
     const formattedAnswer = chalk.green.bold(`"${correctAnswer}"`);
     const spinner = createSpinner('Processing answer...').start();
@@ -61,6 +67,7 @@ async function runQuiz() {
     console.clear();
     await displayIntro();
     await displayQuestion(questionOfTheDay);
+    await displayExplanation(questionOfTheDay);
 }
 
 runQuiz();
