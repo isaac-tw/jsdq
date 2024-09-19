@@ -49,7 +49,7 @@ function parseCodeAndText(inputText) {
             const code = part.replace(/^```[\s\S]*?\n/, '').replace(/\n```$/, '');
             parsedContent.push({
                 content: `\n${code}\n`,
-                type: 'codeBlock',
+                type: 'codeSnippet',
             });
         } else if (part.trim().length > 0) {
             parsedContent.push({
