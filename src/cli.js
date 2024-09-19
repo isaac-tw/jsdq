@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const { createSpinner } = require('nanospinner');
 const { highlight } = require('cli-highlight');
+const boxen = require('boxen');
 const chalk = require('chalk');
 const chalkAnimation = require('chalk-animation');
 const inquirer = require('inquirer');
@@ -46,7 +47,7 @@ async function displayQuestion({ prompt, codeSnippet, options, answer }) {
 
     let message = `${prompt}\n`;
     if (codeSnippet) {
-        message += `\n${highlight(codeSnippet)}\n\n`;
+        message += `\n${boxen(highlight(codeSnippet), { padding: 1 })}\n\n`;
     }
 
     const choices = options.map((option, index) => `${optionLabels[index]}: ${option}`);
@@ -61,7 +62,7 @@ async function displayQuestion({ prompt, codeSnippet, options, answer }) {
     const isCorrect = selectedAnswer[0] === answer;
     const correctChoice = choices[optionLabels.indexOf(answer)];
 
-    console.log()
+    console.log();
     await processAnswer(isCorrect, correctChoice);
 }
 
