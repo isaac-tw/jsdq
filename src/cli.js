@@ -23,7 +23,9 @@ async function displayExplanation({ answer, explanation }) {
     console.log(chalk.white.bold(`Answer: ${answer}`));
 
     const formattedExplanation = parseCodeAndText(explanation)
-        .map(({ type, content }) => type === 'codeSnippet' ? highlight(content) : content)
+        .map(({ type, content }) => 
+            type === 'codeSnippet' ? boxen(highlight(content), { padding: 1 }) : content
+        )
         .join('');
 
     console.log(formattedExplanation);

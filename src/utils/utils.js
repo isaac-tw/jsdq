@@ -48,7 +48,7 @@ function parseCodeAndText(inputText) {
             // Extract code block content, removing the markdown delimiters
             const code = part.replace(/^```[\s\S]*?\n/, '').replace(/\n```$/, '');
             parsedContent.push({
-                content: `\n${code}\n`,
+                content: code,
                 type: 'codeSnippet',
             });
         } else if (part.trim().length > 0) {
