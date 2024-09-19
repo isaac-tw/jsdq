@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/isaac-tw/jsdq#readme",
   "dependencies": {
+    "chalk": "^4.1.2",
     "chalk-animation": "^1.6.0",
     "cli-highlight": "^2.1.11",
     "figlet": "^1.7.0",
