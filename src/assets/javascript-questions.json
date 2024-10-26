@@ -718,7 +718,7 @@
   {
     "id": 57,
     "prompt": "What's the output?",
-    "codeSnippet": "// counter.js\nlet counter = 10;\nexport default counter;",
+    "codeSnippet": "// counter.js\nlet counter = 10;\nexport default counter;\n\n\n// index.js\nimport myCounter from './counter';\nmyCounter += 1;\nconsole.log(myCounter);",
     "options": [
       "`10`",
       "`11`",
