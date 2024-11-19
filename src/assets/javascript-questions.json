@@ -907,7 +907,7 @@
       "`game.next().value` and `game.next(\"Yes\").value`",
       "`game.next.value()` and `game.next.value(\"Yes\")`"
     ],
-    "answer": "A",
+    "answer": "C",
     "explanation": "generator function \"pauses\" its execution when it sees the `yield` keyword. First, we have to let the function yield the string \"Do you love JavaScript?\", which can be done by calling `game.next().value`.\n\nEvery line is executed, until it finds the first `yield` keyword. There is a `yield` keyword on the first line within the function: the execution stops with the first yield! _This means that the variable `answer` is not defined yet!_\n\nWhen we call `game.next(\"Yes\").value`, the previous `yield` is replaced with the value of the parameters passed to the `next()` function, `\"Yes\"` in this case. The value of the variable `answer` is now equal to `\"Yes\"`. The condition of the if-statement returns `false`, and `JavaScript loves you back ❤️` gets logged."
   },
   {
@@ -1243,7 +1243,7 @@
       "`{ a: \"b\" }` and `[\"a\"]`",
       "`{Symbol('a'): 'b'}` and `[]`"
     ],
-    "answer": "A",
+    "answer": "D",
     "explanation": "Symbol is not _enumerable_. The Object.keys method returns all _enumerable_ key properties on an object. The Symbol won't be visible, and an empty array is returned. When logging the entire object, all properties will be visible, even non-enumerable ones.\n\nThis is one of the many qualities of a symbol: besides representing an entirely unique value (which prevents accidental name collision on objects, for example when working with 2 libraries that want to add properties to the same object), you can also \"hide\" properties on objects this way (although not entirely. You can still access symbols using the `Object.getOwnPropertySymbols()` method)."
   },
   {
